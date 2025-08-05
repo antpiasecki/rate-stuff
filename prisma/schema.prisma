@@ -13,4 +13,7 @@ model Movie {
   year        Int
   imdb_image  String?
   imdb_rating Float?
+  user_rating Int?
+
+  @@unique([title, year])
 }
