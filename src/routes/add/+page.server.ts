@@ -20,6 +20,7 @@ export const actions: Actions = {
             data: {
                 title: movie.primaryTitle,
                 year: movie.startYear,
+                imdb_image: movie.primaryImage.url,
                 imdb_rating: movie.rating.aggregateRating,
             }
         })

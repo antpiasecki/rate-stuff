@@ -8,8 +8,9 @@ datasource db {
 }
 
 model Movie {
-  id          String @id @default(cuid())
+  id          String  @id @default(cuid())
   title       String
   year        Int
+  imdb_image  String?
   imdb_rating Float?
 }

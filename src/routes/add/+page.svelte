@@ -29,11 +29,17 @@
 
 {#if form?.results?.titles}
     {#each form?.results?.titles as movie}
-        <div class="max-w-md mx-auto p-4 border rounded mb-3 flex gap-4">
-            <div
-                class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 flex-shrink-0"
-            ></div>
-            <div class="space-y-1">
+        <div
+            class="max-w-md mx-auto p-4 border rounded mb-3 flex gap-4 items-center"
+        >
+            <div class="w-16 h-16 flex-shrink-0">
+                <img
+                    src={movie.primaryImage.url}
+                    alt=""
+                    class="w-full h-full object-cover rounded-xl"
+                />
+            </div>
+            <div class="space-y-1 grow">
                 <div class="font-medium text-base">
                     {movie.primaryTitle}
                 </div>
@@ -55,16 +61,21 @@
                         >{movie.rating?.aggregateRating}</span
                     >
                 </div>
-
-                <form method="post" action="?/add">
-                    <input
-                        type="hidden"
-                        name="data"
-                        value={JSON.stringify(movie)}
-                    />
-                    <button type="submit">+</button>
-                </form>
             </div>
+
+            <form method="post" action="?/add">
+                <input
+                    type="hidden"
+                    name="data"
+                    value={JSON.stringify(movie)}
+                />
+                <button
+                    type="submit"
+                    class="py-1 px-3 text-xl font-semibold bg-gray-800 text-white rounded hover:bg-gray-700 cursor-pointer"
+                >
+                    +
+                </button>
+            </form>
         </div>
     {/each}
 {/if}

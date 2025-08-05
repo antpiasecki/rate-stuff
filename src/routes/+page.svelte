@@ -2,57 +2,24 @@
     const { data } = $props();
 </script>
 
-<form method="post" class="max-w-sm mx-auto p-4 border rounded my-8">
-    <div class="mb-3">
-        <label class="block text-sm font-medium mb-1">
-            Title
-            <input
-                type="text"
-                name="title"
-                class="w-full px-2 py-1 border rounded text-sm"
-                required
-            />
-        </label>
-    </div>
-
-    <div class="mb-3">
-        <label class="block text-sm font-medium mb-1">
-            Year
-            <input
-                type="number"
-                name="year"
-                class="w-full px-2 py-1 border rounded text-sm"
-                required
-            />
-        </label>
-    </div>
-
-    <div class="mb-3">
-        <label class="block text-sm font-medium mb-1">
-            IMDb Rating
-            <input
-                type="text"
-                name="imdb_rating"
-                pattern="^\d+(\.\d+)?$"
-                class="w-full px-2 py-1 border rounded text-sm"
-                required
-            />
-        </label>
-    </div>
-
-    <button
-        type="submit"
-        class="px-3 py-1 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 cursor-pointer"
+<div class="max-w-md mx-auto my-8">
+    <a
+        href="/add"
+        class="block text-center px-3 py-1 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 cursor-pointer"
     >
-        Save
-    </button>
-</form>
+        Add
+    </a>
+</div>
 
 {#each data.movies as movie}
     <div class="max-w-md mx-auto p-4 border rounded mb-3 flex gap-4">
-        <div
-            class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 flex-shrink-0"
-        ></div>
+        <div class="w-16 h-16 flex-shrink-0">
+            <img
+                src={movie.imdb_image}
+                alt=""
+                class="w-full h-full object-cover rounded-xl"
+            />
+        </div>
         <div class="space-y-1">
             <div class="font-medium text-base">{movie.title}</div>
             <div class="text-gray-600 text-sm">{movie.year}</div>
