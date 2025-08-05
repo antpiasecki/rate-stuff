@@ -6,10 +6,19 @@
     <title>Search IMDb</title>
 </svelte:head>
 
+<div class="max-w-md mx-auto my-8">
+    <a
+        href="/"
+        class="block text-center px-3 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 cursor-pointer"
+    >
+        Back
+    </a>
+</div>
+
 <form
     method="post"
     action="?/search"
-    class="max-w-sm mx-auto p-4 border rounded my-8"
+    class="max-w-md mx-auto p-4 border rounded"
 >
     <div class="mb-3">
         <label class="block text-sm font-medium mb-1">
