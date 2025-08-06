@@ -27,6 +27,9 @@
         <div class="space-y-1 grow">
             <div class="font-medium text-base">{movie.title}</div>
             <div class="text-gray-600 text-sm">{movie.year}</div>
+            <div class="text-gray-600 text-sm">
+                {movie.genres.replaceAll(",", " • ")}
+            </div>
             <div class="flex gap-4">
                 <div class="text-gray-600 text-sm flex items-center gap-1">
                     <img class="w-4 h-4" src="/imdb_logo.webp" alt="" />

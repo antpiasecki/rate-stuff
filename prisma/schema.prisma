@@ -11,6 +11,7 @@ model Movie {
   id          String  @id @default(cuid())
   title       String
   year        Int
+  genres      String  @default("")
   imdb_image  String?
   imdb_rating Float   @default(0)
   user_rating Int     @default(0)
