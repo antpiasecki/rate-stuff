@@ -16,7 +16,7 @@
     <title>{data.movie.title}</title>
 </svelte:head>
 
-<div class="max-w-md mx-auto my-8">
+<div class="max-w-lg mx-auto my-8">
     <a
         href="/"
         class="block text-center px-3 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 cursor-pointer"
@@ -25,7 +25,7 @@
     </a>
 </div>
 
-<div class="max-w-md mx-auto p-4 border rounded flex gap-4">
+<div class="max-w-lg mx-auto p-4 border rounded flex gap-4">
     <div class="w-16 h-auto flex-shrink-0">
         <img
             src={data.movie.imdb_image}
@@ -35,9 +35,11 @@
     </div>
     <div class="space-y-1 grow">
         <div class="font-medium text-base">{data.movie.title}</div>
-        <div class="text-gray-600 text-sm">{data.movie.year}</div>
-        <div class="text-gray-600 text-sm">
-            {data.movie.genres.replaceAll(",", " • ")}
+        <div class="flex gap-2">
+            <div class="text-gray-600 text-sm">{data.movie.year}</div>
+            <div class="text-gray-600 text-sm">
+                {data.movie.genres.replaceAll(",", " • ")}
+            </div>
         </div>
         <div class="flex gap-4">
             <div class="text-gray-600 text-sm flex items-center gap-1">
@@ -60,7 +62,9 @@
                     onmouseleave={() => (hover_rating = 0)}
                     aria-label={`Rate ${i + 1} stars`}
                 >
-                    <span class={`text-[28px] ${get_star_class(i + 1)}`}>
+                    <span
+                        class={`text-[19px] md:text-[28px] ${get_star_class(i + 1)}`}
+                    >
                         {#if (hover_rating || rating) >= i + 1}
                             ★
                         {:else}

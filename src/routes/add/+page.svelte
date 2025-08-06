@@ -6,7 +6,7 @@
     <title>Search IMDb</title>
 </svelte:head>
 
-<div class="max-w-md mx-auto my-8">
+<div class="max-w-lg mx-auto my-8">
     <a
         href="/"
         class="block text-center px-3 py-2 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 cursor-pointer"
@@ -18,7 +18,7 @@
 <form
     method="post"
     action="?/search"
-    class="max-w-md mx-auto p-4 border rounded mb-8"
+    class="max-w-lg mx-auto p-4 border rounded mb-8"
 >
     <div class="mb-3">
         <label class="block text-sm font-medium mb-1">
@@ -44,11 +44,12 @@
 
 {#if form?.results?.titles}
     {#each form?.results?.titles as movie}
-        <div class="max-w-md mx-auto p-4 border rounded mb-3 flex gap-3">
+        <div class="max-w-lg mx-auto p-4 border rounded mb-3 flex gap-3">
             <div class="w-16 h-auto flex-shrink-0">
                 <img
                     src={movie.primaryImage?.url}
                     alt=""
+                    loading="lazy"
                     class="w-full object-cover rounded-xl"
                 />
             </div>
