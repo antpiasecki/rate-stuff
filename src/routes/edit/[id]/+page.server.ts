@@ -1,5 +1,5 @@
 import db from "$lib/db";
-import { error, type Actions } from "@sveltejs/kit";
+import { error, redirect, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params }) => {
@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({ params }) => {
         error(404, "Movie not found");
     }
 
-    return { movie }
+    return { movie };
 };
 
 export const actions: Actions = {
@@ -19,6 +19,10 @@ export const actions: Actions = {
         await db.movie.update({
             where: { id: params.id },
             data: { user_rating: rating }
-        })
-    }
+        });
+    },
+    delete: async ({ params }) => {
+        await db.movie.delete({ where: { id: params.id } });
+        redirect(302, "/")
+    },
 };

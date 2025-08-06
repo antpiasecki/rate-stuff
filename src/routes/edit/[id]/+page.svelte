@@ -1,7 +1,7 @@
 <script lang="ts">
     const { data } = $props();
 
-    let rating = $state(data?.movie?.user_rating || 5);
+    let rating = $state(data?.movie?.user_rating);
     let hover_rating = $state(0);
 
     function get_star_class(index: number): string {
@@ -10,6 +10,10 @@
             : "text-gray-300";
     }
 </script>
+
+<svelte:head>
+    <title>{data.movie.title}</title>
+</svelte:head>
 
 <div class="max-w-md mx-auto my-8">
     <a
@@ -52,7 +56,7 @@
                     onmouseleave={() => (hover_rating = 0)}
                     aria-label={`Rate ${i + 1} stars`}
                 >
-                    <span class={`text-2xl ${get_star_class(i + 1)}`}>
+                    <span class={`text-[28px] ${get_star_class(i + 1)}`}>
                         {#if (hover_rating || rating) >= i + 1}
                             ★
                         {:else}
@@ -70,6 +74,15 @@
                 class="block text-center px-3 py-2 w-full bg-gray-800 text-white text-sm rounded hover:bg-gray-700 cursor-pointer"
             >
                 Save
+            </button>
+        </form>
+
+        <form method="post" action="?/delete">
+            <button
+                type="submit"
+                class="block text-center px-3 py-2 w-full bg-red-800 text-white text-sm rounded hover:bg-red-700 cursor-pointer"
+            >
+                Delete
             </button>
         </form>
     </div>

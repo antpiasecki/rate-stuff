@@ -18,23 +18,25 @@
 <form
     method="post"
     action="?/search"
-    class="max-w-md mx-auto p-4 border rounded"
+    class="max-w-md mx-auto p-4 border rounded mb-8"
 >
     <div class="mb-3">
         <label class="block text-sm font-medium mb-1">
             Query
+            <!-- svelte-ignore a11y_autofocus -->
             <input
                 type="text"
                 name="query"
                 class="w-full px-2 py-1 border rounded text-sm"
                 required
+                autofocus
             />
         </label>
     </div>
 
     <button
         type="submit"
-        class="px-3 py-1 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 cursor-pointer"
+        class="px-3 py-2 w-full bg-gray-800 text-white text-sm rounded hover:bg-gray-700 cursor-pointer"
     >
         Search
     </button>
