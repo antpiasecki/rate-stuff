@@ -1,6 +1,7 @@
 <script lang="ts">
     const { data } = $props();
 
+    let review = $state(data?.movie?.user_review);
     let rating = $state(data?.movie?.user_rating);
     let hover_rating = $state(0);
 
@@ -67,7 +68,14 @@
             {/each}
         </div>
 
+        <textarea
+            class="w-full px-2 py-1 border rounded text-sm resize-y"
+            placeholder="Review"
+            bind:value={review}
+        ></textarea>
+
         <form method="post" action="?/update_rating">
+            <input type="hidden" name="review" value={review} />
             <input type="hidden" name="rating" value={rating} />
             <button
                 type="submit"

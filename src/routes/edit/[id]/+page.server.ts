@@ -15,10 +15,11 @@ export const actions: Actions = {
     update_rating: async ({ request, params }) => {
         const data = await request.formData();
         const rating = parseInt(data.get("rating") as string);
+        const review = data.get("review") as string;
 
         await db.movie.update({
             where: { id: params.id },
-            data: { user_rating: rating }
+            data: { user_rating: rating, user_review: review }
         });
     },
     delete: async ({ params }) => {

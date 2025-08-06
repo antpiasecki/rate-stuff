@@ -37,11 +37,12 @@
                     <span class="font-medium">{movie.user_rating}</span>
                 </div>
             </div>
+            <div class="text-gray-600 text-sm">{movie.user_review}</div>
         </div>
 
         <a
             href={`/edit/${movie.id}`}
-            class="my-auto flex justify-center items-center h-9 w-9 text-xl font-semibold bg-gray-800 text-white rounded hover:bg-gray-700 cursor-pointer"
+            class="my-auto flex justify-center items-center min-h-9 min-w-9 text-xl font-semibold bg-gray-800 text-white rounded hover:bg-gray-700 cursor-pointer"
             aria-label="Edit"
         >
             <svg
